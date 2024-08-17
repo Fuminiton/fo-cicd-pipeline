@@ -1,0 +1,13 @@
+# ハッシュ生成
+```yml
+name: Hash functions
+on: push
+jobs:
+    hash:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: echo "${HASH}"
+            env:
+                HASH: ${{ hashFiles('.github/workflows/*.yml') }}
+```
